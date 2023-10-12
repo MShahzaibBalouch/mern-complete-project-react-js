@@ -12,18 +12,18 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = [{
     title: 'Profile',
-    action: ''
+    action: '/admin/profile'
 }, {
     title: 'Account',
-    action: ''
+    action: '/admin/account'
 }, {
     title: 'Dashboard',
-    action: ''
+    action: '/'
 }];
 
 const Navbar = () => {
@@ -85,9 +85,9 @@ const Navbar = () => {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" className='bg-light text-black'>
             <Container maxWidth="xl">
-                <Toolbar disableGutters>
+                <Toolbar>
                     <Typography
                         variant="h6"
                         noWrap
@@ -136,8 +136,8 @@ const Navbar = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    {/* <Typography textAlign="center">{page}</Typography> */}
+                                <MenuItem className='text-black' key={page} onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">{page}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -165,7 +165,7 @@ const Navbar = () => {
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: 'black', display: 'block' }}
                             >
                                 {page}
                             </Button>
@@ -196,7 +196,7 @@ const Navbar = () => {
                         >
                             {settings.map((setting, index) => (
                                 <MenuItem key={index} onClick={handleCloseUserMenu}>
-                                    <div textAlign="center" onClick={setting.action}>{setting.title}</div>
+                                    <Link textAlign="center" className='text-black' to={setting.action}>{setting.title}</Link>
                                 </MenuItem>
                             ))}
                                     <div className='ps-3 cursor-pointer' onClick={handleLogout}>logout</div>

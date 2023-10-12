@@ -32,10 +32,30 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
-.cursor-pointer{
+
+.cursor-pointer {
   cursor: pointer !important;
+}
+
+.bottom-20 {
+  bottom: 20% !important;
+}
+
+.admin-banner {
+  height: 300px !important;
+}
+
+.admin-profile-image {
+  height: 220px;
+  width: 220px !important;
+  margin-top: -100px;
+  margin-left: 50px;
+}
+a{
+  text-decoration: none !important;
 }
