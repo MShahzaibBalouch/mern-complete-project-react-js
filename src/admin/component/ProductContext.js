@@ -9,6 +9,8 @@ export const useProductContext = () => {
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [employees, setEmployees] = useState([]);
+
   const [editingProduct, setEditingProduct] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -22,6 +24,19 @@ export const ProductProvider = ({ children }) => {
 
     fetchData();
   }, [products]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:1500/api/employee/');
+        setEmployees(response.data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchData();
+  }, [employees]);
 
   const handleEdit = (product) => {
     setEditingProduct(product);
@@ -46,6 +61,7 @@ export const ProductProvider = ({ children }) => {
     <ProductContext.Provider
       value={{
         products,
+        employees,
         handleEdit,
         handleDelete,
         handleCreate,

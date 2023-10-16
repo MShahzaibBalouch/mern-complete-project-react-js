@@ -42,15 +42,18 @@ const Navbar = () => {
                             Authorization: `${token}`,
                         },
                     });
-
                     setAdmin(response.data[0]);
                     console.log(response.data[0]);
+                    localStorage.setItem('adminImage',response.data[0].image)
                 }
                 else {
                 navigate('/login');
                 }
+                
             } catch (error) {
                 console.error(error);
+                localStorage.removeItem('token');
+                navigate('/login');
             }
         };
 
@@ -85,7 +88,7 @@ const Navbar = () => {
     };
 
     return (
-        <AppBar position="static" className='bg-light text-black'>
+        <AppBar position="static" className='bg-light text-black nabar-appbar' style={{marginLeft:'200px', width:'85.2%'}}>
             <Container maxWidth="xl">
                 <Toolbar>
                     <Typography

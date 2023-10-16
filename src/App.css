@@ -56,6 +56,62 @@
   margin-top: -100px;
   margin-left: 50px;
 }
-a{
+
+a {
   text-decoration: none !important;
+}
+
+.admin-left-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  background-color: #f8f9fa;
+  z-index: 100;
+}
+
+@media (max-width: 576px) {
+  .admin-left-navbar {
+    position: fixed;
+    padding-top: 71px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 56px;
+    background-color: #f8f9fa;
+    z-index: 100;
+    overflow: hidden !important;
+  }
+
+  .nabar-appbar {
+    margin-left: 54px !important;
+  }
+
+  .navbar-appbar {
+    margin-left: 70px !important;
+  }
+}
+@media (max-width: 992px) {
+  .admin-left-navbar {
+    position: fixed;
+    padding-top: 71px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 56px;
+    background-color: #f8f9fa;
+    z-index: 100;
+    overflow: hidden !important;
+  }
+
+  .nabar-appbar {
+    margin-left: 54px !important;
+    width: 93% !important;
+  }
+
+  .navbar-appbar {
+    margin-left: 100px !important;
+    width: 80% !important;
+  }
 }
